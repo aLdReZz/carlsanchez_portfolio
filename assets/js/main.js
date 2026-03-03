@@ -36,6 +36,9 @@ let mixerPortfolio = mixitup('.work__container', {
     },
     animation: {
         duration: 300
+    },
+    load: {
+        filter: '.realestate'
     }
 });
 

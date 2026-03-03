@@ -531,13 +531,47 @@ body.light-theme {
 
 .services__card {
   background-color: var(--container-color);
-  padding: 3rem 1.5rem 1.5rem;
+  padding: 2rem 1.5rem 1.75rem;
   border-radius: 1rem;
+  border-top: 3px solid var(--first-color);
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.services__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px hsla(var(--second-hue), 48%, 8%, .5),
+              0 0 0 1px var(--first-color);
+}
+
+.services__icon-wrapper {
+  width: 52px;
+  height: 52px;
+  background: hsla(var(--first-hue), var(--sat), var(--lig), .15);
+  border-radius: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: .25rem;
+}
+
+.services__card-icon {
+  font-size: 1.6rem;
+  color: var(--first-color);
 }
 
 .services__title {
   font-size: var(--h3-font-size);
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
+}
+
+.services__description {
+  font-size: var(--smaller-font-size);
+  color: var(--text-color);
+  line-height: 1.5;
+  flex: 1;
 }
 
 .services__button {
@@ -547,6 +581,7 @@ body.light-theme {
   align-items: center;
   column-gap: .25rem;
   cursor: pointer;
+  margin-top: .5rem;
 }
 
 .services__button:hover .services__icon {
@@ -573,9 +608,18 @@ body.light-theme {
 
 .services__modal-content {
   position: relative;
-  background-color: var(--body-color);
-  padding: 4.5rem 1.5rem 2.5rem;
+  background-color: var(--container-color);
+  padding: 4.5rem 2rem 2.5rem;
   border-radius: 1.5rem;
+  border-top: 3px solid var(--first-color);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6),
+              0 0 0 1px hsla(var(--first-hue), var(--sat), var(--lig), .15);
+  animation: modalFloat .3s ease;
+}
+
+@keyframes modalFloat {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .services__modal-title, 
@@ -638,7 +682,8 @@ body.light-theme {
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: .75rem;
+  flex-wrap: wrap;
+  gap: .5rem;
   margin-bottom: 2rem;
 }
 
@@ -920,7 +965,7 @@ body.light-theme {
   }
 
   .services__container {
-    grid-template-columns: 145px;
+    grid-template-columns: 1fr;
     justify-content: center;
   }
 
@@ -957,7 +1002,7 @@ body.light-theme {
   }
 
   .services__container {
-    grid-template-columns: repeat(2, 160px);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
   }
   .services__modal-content {
@@ -1062,8 +1107,8 @@ body.light-theme {
   }
 
   .services__container {
-    grid-template-columns: repeat(3, 192px);
-    column-gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
   }
   .services__card {
     padding: 5rem 2rem 1.5rem;
