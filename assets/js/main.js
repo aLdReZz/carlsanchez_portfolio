@@ -38,7 +38,7 @@ let mixerPortfolio = mixitup('.work__container', {
         duration: 300
     },
     load: {
-        filter: '.realestate'
+        filter: 'all'
     }
 });
 
